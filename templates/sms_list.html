@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список SMS</title>
+    <!-- Подключение стилей DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .analytics {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Список полученных SMS</h2>
+    <div class="analytics">
+        <p>Всего счетчиков: <span id="total-count"></span></p>
+        <p>Счетчики, вышедшие на связь: <span id="responded-count"></span></p>
+        <p>Процент вышедших на связь: <span id="response-rate"></span>%</p>
+    </div>
+    <table id="sms-table" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Отправитель</th>
+                <th>Сообщение</th>
+                <th>Ответное сообщение</th>
+                <th>Время</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in messages %}
+            <tr>
+                <td>{{ message[0] }}</td>
+                <td>{{ message[1] }}</td>
+                <td>{{ message[2] }}</td>
+                <td>{{ message[3] }}</td>
+                <td>{{ message[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        // Инициализация таблицы DataTables
+        $(document).ready(function() {
+            let table = $('#sms-table').DataTable({
+                "paging": true,
+                "searching": true,
+                "order": [[4, "desc"]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/Russian.json"
+                }
+            });
+
+            // Аналитика
+            let totalCount = table.rows().count(); // Общее количество строк
+            let respondedCount = table
+                .rows()
+                .data()
+                .toArray()
+                .filter(row => row[3] !== "None" && row[3] !== "" && row[3] !== null)
+                .length; 
+
+            // Обновление аналитики на странице
+            document.getElementById("total-count").textContent = totalCount;
+            document.getElementById("responded-count").textContent = respondedCount;
+            document.getElementById("response-rate").textContent = (
+                (respondedCount / totalCount) * 100
+            ).toFixed(2);
+        });
+    </script>
+</body>
+</html>
