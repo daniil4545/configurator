@@ -1,0 +1,69 @@
+2024-12-05 15:37:35,147 - INFO - Запуск ngrok, полчуение публичного url
+2024-12-05 15:37:35,147 - INFO - Opening tunnel named: http-5000-ab7d4515-f735-4c0d-be5c-52d4d37aea2a
+2024-12-05 15:37:35,202 - INFO - t=2024-12-05T15:37:35+0700 lvl=info msg="no configuration paths supplied"
+2024-12-05 15:37:35,202 - INFO - t=2024-12-05T15:37:35+0700 lvl=info msg="using configuration at default config path" path=C:\\Users\\Daniil\\AppData\\Local/ngrok/ngrok.yml
+2024-12-05 15:37:35,202 - INFO - t=2024-12-05T15:37:35+0700 lvl=info msg="open config file" path=C:\\Users\\Daniil\\AppData\\Local\\ngrok\\ngrok.yml err=nil
+2024-12-05 15:37:35,204 - INFO - t=2024-12-05T15:37:35+0700 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+2024-12-05 15:37:36,800 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg="client session established" obj=tunnels.session
+2024-12-05 15:37:36,800 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+2024-12-05 15:37:36,837 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=start pg=/api/tunnels id=9d25233aad70f52e
+2024-12-05 15:37:36,837 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=end pg=/api/tunnels id=9d25233aad70f52e status=200 dur=0s
+2024-12-05 15:37:36,838 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=start pg=/api/tunnels id=03424a3a163d3653
+2024-12-05 15:37:36,839 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=end pg=/api/tunnels id=03424a3a163d3653 status=200 dur=620.2Вµs
+2024-12-05 15:37:36,840 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=start pg=/api/tunnels id=7332846d3af5d4e9
+2024-12-05 15:37:36,959 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg="started tunnel" obj=tunnels name=http-5000-ab7d4515-f735-4c0d-be5c-52d4d37aea2a addr=http://localhost:5000 url=https://b285-109-120-158-172.ngrok-free.app
+2024-12-05 15:37:36,959 - INFO - t=2024-12-05T15:37:36+0700 lvl=info msg=end pg=/api/tunnels id=7332846d3af5d4e9 status=201 dur=119.9659ms
+2024-12-05 15:37:36,960 - INFO - Публичный адресс получен:https://b285-109-120-158-172.ngrok-free.app
+2024-12-05 15:37:36,961 - INFO - Запуск локального сервера
+2024-12-05 15:37:36,962 - INFO - Регистрация вэбхука
+2024-12-05 15:37:36,962 - INFO - Выгрузка данных из файла конфигурации
+2024-12-05 15:37:36,964 - INFO - Формирование POST запроса
+2024-12-05 15:37:36,964 - INFO - POST запрос сформирован
+2024-12-05 15:37:37,793 - INFO - Вебхук успешно зарегистрирован на https://b285-109-120-158-172.ngrok-free.app/sms
+2024-12-05 15:37:37,816 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.1:5000
+2024-12-05 15:37:37,816 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 15:48:07,972 - INFO - Запуск сервера
+2024-12-05 15:48:08,689 - INFO - Запуск ngrok, получение публичного url
+2024-12-05 15:48:08,690 - INFO - Opening tunnel named: http-5000-d4ee91fc-4d8c-4ed4-ac28-8e88f2ade7c9
+2024-12-05 15:48:08,747 - INFO - t=2024-12-05T15:48:08+0700 lvl=info msg="no configuration paths supplied"
+2024-12-05 15:48:08,748 - INFO - t=2024-12-05T15:48:08+0700 lvl=info msg="using configuration at default config path" path=C:\\Users\\Daniil\\AppData\\Local/ngrok/ngrok.yml
+2024-12-05 15:48:08,748 - INFO - t=2024-12-05T15:48:08+0700 lvl=info msg="open config file" path=C:\\Users\\Daniil\\AppData\\Local\\ngrok\\ngrok.yml err=nil
+2024-12-05 15:48:08,749 - WARNING - t=2024-12-05T15:48:08+0700 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+2024-12-05 15:48:08,749 - INFO - t=2024-12-05T15:48:08+0700 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041 allow_hosts=[]
+2024-12-05 15:48:09,953 - ERROR - t=2024-12-05T15:48:09+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+2024-12-05 15:48:09,954 - ERROR - t=2024-12-05T15:48:09+0700 lvl=eror msg="session closing" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+2024-12-05 15:48:09,954 - INFO - t=2024-12-05T15:48:09+0700 lvl=info msg="received stop request" obj=app stopReq="{err:{Remote:true Inner:{Inner:0xc0008b8040}} restart:false}"
+2024-12-05 15:48:09,955 - ERROR - t=2024-12-05T15:48:09+0700 lvl=eror msg="terminating with error" obj=app err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+2024-12-05 15:48:09,955 - CRITICAL - t=2024-12-05T15:48:09+0700 lvl=crit msg="command failed" err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+2024-12-05 15:48:09,955 - INFO - t=2024-12-05T15:48:09+0700 lvl=info msg="no more state changes" obj=tunnels.session
+2024-12-05 15:48:28,930 - INFO - Запуск сервера
+2024-12-05 15:48:29,626 - INFO - Запуск ngrok, получение публичного url
+2024-12-05 15:48:29,627 - INFO - Opening tunnel named: http-5000-fde6a5e1-1109-47ed-8760-689f86a0b399
+2024-12-05 15:48:29,695 - INFO - t=2024-12-05T15:48:29+0700 lvl=info msg="no configuration paths supplied"
+2024-12-05 15:48:29,696 - INFO - t=2024-12-05T15:48:29+0700 lvl=info msg="using configuration at default config path" path=C:\\Users\\Daniil\\AppData\\Local/ngrok/ngrok.yml
+2024-12-05 15:48:29,696 - INFO - t=2024-12-05T15:48:29+0700 lvl=info msg="open config file" path=C:\\Users\\Daniil\\AppData\\Local\\ngrok\\ngrok.yml err=nil
+2024-12-05 15:48:29,697 - INFO - t=2024-12-05T15:48:29+0700 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+2024-12-05 15:48:30,270 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg="client session established" obj=tunnels.session
+2024-12-05 15:48:30,271 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+2024-12-05 15:48:30,294 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=start pg=/api/tunnels id=0370ebf2a35daadd
+2024-12-05 15:48:30,295 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=end pg=/api/tunnels id=0370ebf2a35daadd status=200 dur=183.8Вµs
+2024-12-05 15:48:30,296 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=start pg=/api/tunnels id=36e484fcf2147e44
+2024-12-05 15:48:30,296 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=end pg=/api/tunnels id=36e484fcf2147e44 status=200 dur=0s
+2024-12-05 15:48:30,297 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=start pg=/api/tunnels id=844da68f77dc6ac5
+2024-12-05 15:48:30,419 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg="started tunnel" obj=tunnels name=http-5000-fde6a5e1-1109-47ed-8760-689f86a0b399 addr=http://localhost:5000 url=https://d29d-109-120-158-172.ngrok-free.app
+2024-12-05 15:48:30,419 - INFO - t=2024-12-05T15:48:30+0700 lvl=info msg=end pg=/api/tunnels id=844da68f77dc6ac5 status=201 dur=121.8648ms
+2024-12-05 15:48:30,420 - INFO - Публичный адресс получен:https://d29d-109-120-158-172.ngrok-free.app
+2024-12-05 15:48:30,420 - INFO - Запуск локального сервера
+2024-12-05 15:48:30,421 - INFO - Регистрация вэбхука
+2024-12-05 15:48:30,421 - INFO - Выгрузка данных из файла конфигурации
+2024-12-05 15:48:30,422 - INFO - Формирование POST запроса для регистрации вэбхука
+2024-12-05 15:48:30,422 - INFO - POST запрос сформирован
+2024-12-05 15:48:31,205 - INFO - Вебхук успешно зарегистрирован на https://d29d-109-120-158-172.ngrok-free.app/sms
+2024-12-05 15:48:31,265 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.1:5000
+2024-12-05 15:48:31,265 - INFO - [33mPress CTRL+C to quit[0m
