@@ -22,12 +22,12 @@ def main():
     create_default_config()
 
     edit_config_input = input("Изменить конфигурационные данные? [y/n]: ").strip().lower()
-    if edit_config_input in ("y","yes","Y","YES","Yes"):
+    if edit_config_input in ("y","yes"):
         edit_config()
 
     # Путь до файла с данными
-    #file_path = input("Введите путь до файла (Файл - Скопировать как путь): ").replace('"', '')
-    file_path = "numbers.xlsx"
+    file_path = input("Введите путь до файла (Файл - Скопировать как путь): ").replace('"', '')
+    #file_path = "numbers.xlsx"
 
     # Считываем данные из таблицы
     df = read_from_excel(file_path)
@@ -40,7 +40,7 @@ def main():
 
     # Вопрос, нужно ли очистить базу данных
     clear_db_input = input("Очистить БД от предыдущих записей? [y/n]: ").strip().lower()
-    if clear_db_input in ("y","yes","Y","YES","Yes"):
+    if clear_db_input in ("y","yes"):
         clear_db()
 
     # Делаем рассылку для каждого номера из таблицы
