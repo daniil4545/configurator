@@ -1,6 +1,7 @@
-.idea
 __pycache__
-configurator.env
+.env
 server.log
+app.log
 sms.db
 venv
+numbers.xlsx

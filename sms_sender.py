@@ -2,7 +2,7 @@ import requests
 import logging
 from config import load_config
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app_logger')
 
 def send_sms(message: str, phone_number):
     '''Функция отправки SMS'''
@@ -10,10 +10,10 @@ def send_sms(message: str, phone_number):
     logger.info("Вызов функции рассылки SMS")
 
     # Получаем данные из файла окружения
-    username, password, server_adress = load_config()
+    username, password = load_config()
 
     # Формируем запрос к шлюзу
-    url = f"http://{server_adress}/message"
+    url = f"https://api.sms-gate.app/3rdparty/v1/message"
     logger.info(f"Адрес шлюза:{url}")
 
     headers = {
@@ -24,7 +24,7 @@ def send_sms(message: str, phone_number):
         "phoneNumbers": phone_number
     }
     
-    # Делаем запрос к шклюзу
+    # Делаем запрос к шлюзу
     logger.info(f"Формирование запроса к шлюзу")
     try:
         response = requests.post(url, auth=requests.auth.HTTPBasicAuth(username, password), headers=headers, json=data)

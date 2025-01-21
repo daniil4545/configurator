@@ -1,11 +1,12 @@
-from config import edit_config, create_default_config
-from database import init_db, clear_db, add_sms_data, update_response, get_all_messages
-from excel import read_from_excel
 import logging
-import subprocess
-from sms import send_sms
+from threading import Thread
+from config import edit_config, create_default_config
+from database import init_db, clear_db, add_sms_data
+from excel import read_from_excel
+from sms_sender import send_sms
+from server import start_server
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app_logger')
 
 logging.basicConfig(
     level=logging.INFO,
@@ -14,7 +15,7 @@ logging.basicConfig(
     filemode='w'
 )
 
-def main():
+def run_sms_sender():
 
     logger.info("Программа запущенна")
 
@@ -51,9 +52,12 @@ def main():
 
     logger.info(f"Рассылка завершена")
 
-    # Запуск сервера в отдельном процессе
-    server_script = "server.py"
-    subprocess.Popen(["python", server_script])
-
 if __name__ == "__main__":
-    main()
+    server_thread = Thread(target=start_server, daemon=True)
+    server_thread.start()
+
+    # Запускаем основную логику
+    run_sms_sender()
+
+    # Ожидаем завершения потока сервера, если нужно
+    server_thread.join()

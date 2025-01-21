@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app_logger')
 
 def read_from_excel(path: str):
 
@@ -12,7 +12,7 @@ def read_from_excel(path: str):
 
         logger.info(f"Попытка открыть excel файл: {path}")
 
-        # Открытие фалйа Excel
+        # Открытие файла Excel
         df = pd.read_excel(path)
         logger.info(f"Файл excel успешно открыт")
 
@@ -48,7 +48,7 @@ def read_from_excel(path: str):
 
         # Преобразование в словарь
         result = dict(zip(df['Номер'], df['Сообщение']))
-        logger.info(f"Создан словарь знаечний: {len(result)} записей")
+        logger.info(f"Создан словарь значений: {len(result)} записей")
         return result
 
     except ValueError as ve:

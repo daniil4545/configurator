@@ -1,20 +1,19 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app_logger')
 
-CONFIG_PATH = "configurator.env"
+CONFIG_PATH = find_dotenv()
 
 def create_default_config():
     """Создаёт конфигурационный файл с дефолтными значениями, если его нет."""
     logger.info("Проверка наличия файла конфигурации")
     if not os.path.exists(CONFIG_PATH):
-        logging.info("Конфигурационный файл отсутствует. Создаём файл с дефолтными значениями")
+        logging.info("Конфигурационный файл отсутствует. Создаём файл с начальными значениями")
         with open(CONFIG_PATH, 'w') as f:
-            f.write("GATEWAY_USERNAME=P-KHRJ\n")
-            f.write("PASSWORD=qbalabdocp6abd\n")
-            f.write("SERVER_ADRESS=api.sms-gate.app/3rdparty/v1\n")
+            f.write("GATEWAY_USERNAME=JCNYRX\n")
+            f.write("PASSWORD=mtsmts123456789\n")
             f.close()
     logger.info("Файл конфигурации найден")
 
@@ -31,6 +30,5 @@ def load_config():
     
     username = os.getenv("GATEWAY_USERNAME")
     password = os.getenv("PASSWORD")
-    server_adress = os.getenv("SERVER_ADRESS")
 
-    return username, password, server_adress
+    return username, password

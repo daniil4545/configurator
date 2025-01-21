@@ -1,7 +1,7 @@
 import sqlite3
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app_logger')
 
 # Инициализация БД
 def init_db():
@@ -17,7 +17,7 @@ def init_db():
     )''')
     conn.commit()
     conn.close()
-    logger.info("БД инициализированна")
+    logger.info("БД инициализирована")
 
 # Очистка БД
 def clear_db():
