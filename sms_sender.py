@@ -10,10 +10,11 @@ def send_sms(message: str, phone_number):
     logger.info("Вызов функции рассылки SMS")
 
     # Получаем данные из файла окружения
-    username, password = load_config()
+    server, local_ip, username, password = load_config()
 
     # Формируем запрос к шлюзу
-    url = f"https://api.sms-gate.app/3rdparty/v1/message"
+    url = "http://" + local_ip + "/message" if server.lower() == "local" else "https://api.sms-gate.app/3rdparty/v1/message"
+
     logger.info(f"Адрес шлюза:{url}")
 
     headers = {

@@ -9,12 +9,12 @@ def received_webhook(public_url):
     # Загружаем конфигурацию из файла .env
 
     logger.info("Регистрация вэбхука")
-    username, password = load_config()
+    server, local_ip, username, password = load_config()
 
     # Формируем URL и данные для вебхука
     logger.info("Формирование POST запроса для регистрации вэбхука")
     webhook_url = f"{public_url}/sms" #куда слать вэбхуки
-    api_url = "https://api.sms-gate.app/3rdparty/v1/webhooks" #откуда шлются вэбхуки
+    url = "http://" + local_ip + "/webhooks" if server.lower() == "local" else "https://api.sms-gate.app/3rdparty/v1/webhooks" #откуда шлются вэбхуки
 
     data = {
         "id": "",
@@ -26,7 +26,7 @@ def received_webhook(public_url):
 
     try:
         # Выполняем POST-запрос для регистрации вебхука
-        response = requests.post(api_url, json=data, auth=(username, password))
+        response = requests.post(url, json=data, auth=(username, password))
         if response.status_code == 200 or response.status_code == 201:
             logger.info(f"Вебхук успешно зарегистрирован на {webhook_url}")
             return True
@@ -42,12 +42,12 @@ def delivered_webhook(public_url):
     """Регистрирует вебхук (статус доставки) на публичный URL ngrok."""
     # Загружаем конфигурацию из файла .env
     logger.info("Регистрация вэбхука")
-    username, password = load_config()
+    server, local_ip, username, password = load_config()
 
     # Формируем URL и данные для вебхука
     logger.info("Формирование POST запроса для регистрации вэбхука")
     webhook_url = f"{public_url}/sms" #куда слать вэбхуки
-    api_url = "https://api.sms-gate.app/3rdparty/v1/webhooks" #откуда шлются вэбхуки
+    url = "http://" + local_ip + "/webhooks" if server.lower() == "local" else "https://api.sms-gate.app/3rdparty/v1/webhooks" #откуда шлются вэбхуки
 
     data = {
         "id": "",
@@ -59,7 +59,7 @@ def delivered_webhook(public_url):
 
     try:
         # Выполняем POST-запрос для регистрации вебхука
-        response = requests.post(api_url, json=data, auth=(username, password))
+        response = requests.post(url, json=data, auth=(username, password))
         if response.status_code == 200 or response.status_code == 201:
             logger.info(f"Вебхук успешно зарегистрирован на {webhook_url}")
             return True

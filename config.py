@@ -12,8 +12,10 @@ def create_default_config():
     if not os.path.exists(CONFIG_PATH):
         logging.info("Конфигурационный файл отсутствует. Создаём файл с начальными значениями")
         with open(CONFIG_PATH, 'w') as f:
-            f.write("GATEWAY_USERNAME=JCNYRX\n")
-            f.write("PASSWORD=mtsmts123456789\n")
+            f.write("SERVER=local\n")
+            f.write("LOCAL_ADDRESS=192.168.1.182:8080")
+            f.write("GATEWAY_USERNAME=mts\n")
+            f.write("PASSWORD=mtsmts123\n")
             f.close()
     logger.info("Файл конфигурации найден")
 
@@ -28,7 +30,9 @@ def load_config():
     logger.info("Выгрузка данных из файла конфигурации")
     load_dotenv(CONFIG_PATH)
     
+    server = os.getenv("SERVER")
+    local_ip = os.getenv("LOCAL_ADDRESS")
     username = os.getenv("GATEWAY_USERNAME")
     password = os.getenv("PASSWORD")
 
-    return username, password
+    return server, local_ip, username, password

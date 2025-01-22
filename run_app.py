@@ -1,4 +1,5 @@
 import logging
+import time
 from threading import Thread
 from config import edit_config, create_default_config
 from database import init_db, clear_db, add_sms_data
@@ -16,6 +17,8 @@ logging.basicConfig(
 )
 
 def run_sms_sender():
+
+    time.sleep(8) # время на запуск сервера
 
     logger.info("Программа запущенна")
 
@@ -54,6 +57,7 @@ def run_sms_sender():
 
 if __name__ == "__main__":
     server_thread = Thread(target=start_server, daemon=True)
+
     server_thread.start()
 
     # Запускаем основную логику
